@@ -6,61 +6,66 @@ This project explores the Perceptron, a classic supervised learning algorithm fo
 
 ## Theoretical Background
 
-### 1. Linear decision function
+### 1. Linear Decision Function
 
-Given an input vector \(x \in \mathbb{R}^d\), the Perceptron computes
+For an input vector `x`, the Perceptron computes:
 
-\[
-z = w^\top x + b,
-\]
+$$
+z = w^T x + b
+$$
 
-where \(w\) is the weight vector and \(b\) is the bias.
+Here, `w` is the weight vector and `b` is the bias.
 
-For labels encoded as \(\{-1,+1\}\), a common prediction rule is
+For labels encoded as `-1` and `+1`, a standard prediction rule is:
 
-\[
-\hat y =
+$$
+\hat{y} =
 \begin{cases}
-+1 & \text{if } w^\top x+b \geq 0,\\
--1 & \text{otherwise}.
++1 & \text{if } w^T x + b \geq 0 \\
+-1 & \text{otherwise}
 \end{cases}
-\]
+$$
 
-The decision boundary is the hyperplane \(w^\top x+b=0\).  
-**Note:** The prediction rule and label encoding above describe the standard formulation. Check the notebook to confirm its exact convention.
+The decision boundary is the hyperplane:
 
-### 2. Perceptron learning rule
+$$
+w^T x + b = 0
+$$
 
-For a misclassified training example \((x_i,y_i)\), with \(y_i\in\{-1,+1\}\), the standard update is
+**Note:** This is the standard formulation. Check that the notebook uses the same label encoding and prediction convention.
 
-\[
-w \leftarrow w+\eta y_i x_i,\qquad
-b \leftarrow b+\eta y_i,
-\]
+### 2. Perceptron Learning Rule
 
-where \(\eta>0\) is the learning rate. The update moves the decision boundary to improve classification of the misclassified example.
+For a misclassified example `(x_i, y_i)`, where `y_i` is either `-1` or `+1`, the standard update is:
 
-### 3. Convergence and limitations
+$$
+w \leftarrow w + \eta y_i x_i
+$$
 
-The Perceptron Convergence Theorem states that the standard algorithm makes a finite number of updates and converges to a separating hyperplane when the training data are linearly separable, under the theorem's assumptions.
+$$
+b \leftarrow b + \eta y_i
+$$
+
+Here, `η > 0` is the learning rate. The update changes the decision boundary based on the misclassified example.
+
+### 3. Convergence and Limitations
+
+Under the standard assumptions, the Perceptron Convergence Theorem guarantees a finite number of updates when the training data are linearly separable.
 
 If the data are not linearly separable, the algorithm is not guaranteed to converge to a perfect classifier.
 
 ## What This Project Explores
 
 - The mechanics of a linear binary classifier
-- Updating model parameters from training examples
-- Learning a linear decision boundary
-- Visualizing classification behavior
+- Updating weights and bias using training examples
+- Learning and visualizing a linear decision boundary
 
-## Notebook
+## How to Run
 
-Open the Jupyter Notebook in this repository and run its cells in order. If your notebook has a different filename, update this section to match it.
-
-## Requirements
-
-Check the notebook imports for the exact dependencies. A typical implementation may use Python, NumPy, and Matplotlib.
+1. Open the notebook in Jupyter Notebook or Google Colab.
+2. Install the libraries imported by the notebook.
+3. Run the cells in order.
 
 ## Learning Objective
 
-The goal is to understand how a simple linear classifier learns from labeled examples and how its parameter updates affect the decision boundary.
+The goal is to understand how a linear classifier learns from labeled examples and how parameter updates affect its decision boundary.
